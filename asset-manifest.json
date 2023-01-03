@@ -1,15 +1,15 @@
 {
-  "main.css": "/letterboxd-wrapped/static/css/main.dd56d889.chunk.css",
-  "main.js": "/letterboxd-wrapped/static/js/main.989c9c40.chunk.js",
-  "main.js.map": "/letterboxd-wrapped/static/js/main.989c9c40.chunk.js.map",
+  "main.css": "/letterboxd-wrapped/static/css/main.55df4691.chunk.css",
+  "main.js": "/letterboxd-wrapped/static/js/main.ca376527.chunk.js",
+  "main.js.map": "/letterboxd-wrapped/static/js/main.ca376527.chunk.js.map",
   "runtime~main.js": "/letterboxd-wrapped/static/js/runtime~main.7e3c23cc.js",
   "runtime~main.js.map": "/letterboxd-wrapped/static/js/runtime~main.7e3c23cc.js.map",
-  "static/js/2.c21b336a.chunk.js": "/letterboxd-wrapped/static/js/2.c21b336a.chunk.js",
-  "static/js/2.c21b336a.chunk.js.map": "/letterboxd-wrapped/static/js/2.c21b336a.chunk.js.map",
+  "static/js/2.82e313a4.chunk.js": "/letterboxd-wrapped/static/js/2.82e313a4.chunk.js",
+  "static/js/2.82e313a4.chunk.js.map": "/letterboxd-wrapped/static/js/2.82e313a4.chunk.js.map",
   "static/js/3.937f6cc8.chunk.js": "/letterboxd-wrapped/static/js/3.937f6cc8.chunk.js",
   "static/js/3.937f6cc8.chunk.js.map": "/letterboxd-wrapped/static/js/3.937f6cc8.chunk.js.map",
   "index.html": "/letterboxd-wrapped/index.html",
-  "precache-manifest.7c29a95e9176aab65eef50b2273f1a2f.js": "/letterboxd-wrapped/precache-manifest.7c29a95e9176aab65eef50b2273f1a2f.js",
+  "precache-manifest.acb28ffb967fab0a1c3dcf9a2216b865.js": "/letterboxd-wrapped/precache-manifest.acb28ffb967fab0a1c3dcf9a2216b865.js",
   "service-worker.js": "/letterboxd-wrapped/service-worker.js",
-  "static/css/main.dd56d889.chunk.css.map": "/letterboxd-wrapped/static/css/main.dd56d889.chunk.css.map"
+  "static/css/main.55df4691.chunk.css.map": "/letterboxd-wrapped/static/css/main.55df4691.chunk.css.map"
 }
