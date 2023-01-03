@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useState } from 'react';
+
+// pages
+import Home from './Home';
+import Directions from './Directions';
+import FilmsWatched from './FilmsWatched';
+import Error from './Error';
+import MinutesWatched from './MinutesWatched';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // note: a state variable’s value never changes within a render. be careful.
+  // remember to avoid direct mutations to object -> replace them w new ones so the frame rerenders
+  // TREAT STATE AS IMMUTABLE!
+  const [pageIndex, setPageIndex] = useState(0);
+  const [filmDataObj, setFilmDataObj] = useState(null)
+
+  if (pageIndex === 0){
+    return (
+      <Home onClick={() => setPageIndex(1)}/>
+    );
+  } else if (pageIndex === 1){
+    return (
+      <Directions setPageIndex={setPageIndex}
+                  setFilmDataObj={setFilmDataObj} />
+    );
+  } else if (pageIndex === 2){
+    return (
+      <FilmsWatched onClick={() => setPageIndex(3)}
+              filmDataObj = {filmDataObj}
+      />
+    );
+  } else if (pageIndex === 3){
+    return (
+      <MinutesWatched onClick={() => setPageIndex(4)}
+              filmDataObj = {filmDataObj}
+      />
+    );
+  } else if (pageIndex === 'error'){
+    return (
+      <Error />
+    );
+  }
 }
 
-export default App;
+export default App; // "export default" keywords specify the main component of the file
