@@ -1,4 +1,5 @@
-import './FilmsWatched.css';
+import './css/FilmsWatched.css';
+import './css/App.css';
 import React from 'react';
 
 function Error({onClick,filmDataObj}) {

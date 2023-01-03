@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 import React, { useEffect } from 'react';
 import Papa from 'papaparse';
 import { useState } from 'react';
@@ -54,7 +54,8 @@ function Directions({setPageIndex, setFilmDataObj}) {
         resolve();
       } else {
         try {
-          userDataCopy[index].runtime = currMovieData.runtime;
+          userDataCopy[index].Runtime = currMovieData.runtime;
+          userDataCopy[index].Genres = currMovieData.genres;
           resolve();
         } catch {
           reject();
@@ -148,17 +149,17 @@ function Directions({setPageIndex, setFilmDataObj}) {
           </p>
           <div className='App-body'>
             <p>
-            1. Log in to your account. <br/>
+            1. Log in to your account <br/>
             2. Navigate to https://letterboxd.com/settings/ <br/>
             3. Click “Import & Export” <br/>
             4. Click "Export Your Data" <br/>
-            5. Unzip the folder and upload watched.csv.
+            5. Unzip the folder and upload "watched.csv"
             </p>
           </div>
-          <input type="file" 
-            id="csvFile" 
-              accept=".csv"
-              onChange={fileHandler} />
+          <div class="mb-3">
+            <input class="form-control" type="file" id="csvFile" accept=".csv" onChange={fileHandler}/>
+          </div>
+
           <br/>
         </header>
       </div>

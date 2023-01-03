@@ -7,6 +7,7 @@ import Directions from './Directions';
 import FilmsWatched from './FilmsWatched';
 import Error from './Error';
 import MinutesWatched from './MinutesWatched';
+import TopGenres from './TopGenres';
 
 function App() {
   // note: a state variable’s value never changes within a render. be careful.
@@ -33,6 +34,12 @@ function App() {
   } else if (pageIndex === 3){
     return (
       <MinutesWatched onClick={() => setPageIndex(4)}
+              filmDataObj = {filmDataObj}
+      />
+    );
+  } else if (pageIndex === 4){
+    return (
+      <TopGenres onClick={() => setPageIndex(4)}
               filmDataObj = {filmDataObj}
       />
     );

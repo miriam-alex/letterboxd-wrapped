@@ -1,19 +1,20 @@
-import './FilmsWatched.css';
+import './css/FilmsWatched.css';
+import './css/App.css';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import * as Constants from './Constants.js';
 
 function MinutesWatched({onClick,filmDataObj}) {
     const [minutesData,setMinutesData] = useState(null);
 
     useEffect(()=> {
+        console.log("minutes effected!")
         if (minutesData === null){
             let totalMinutes = 0;
             for (let i=0; i<filmDataObj.length; i++){
-                totalMinutes = totalMinutes + filmDataObj[i].runtime
+                totalMinutes = totalMinutes + filmDataObj[i].Runtime
             }
-            setMinutesData(totalMinutes)
+            setMinutesData(totalMinutes.toLocaleString("en-US"))
         }
     });
 
@@ -21,7 +22,7 @@ function MinutesWatched({onClick,filmDataObj}) {
       <div className="App">
         <header className="App-header">
           <p> In fact, you consumed </p>
-          <p> {`${minutesData}`} </p>
+          <h1> {`${minutesData}`} </h1>
           <p> minutes of film this year. </p>
           <button className = "button" onClick = {onClick}> Next </button>
         </header>

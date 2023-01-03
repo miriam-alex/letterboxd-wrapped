@@ -1,11 +1,11 @@
-import './FilmsWatched.css';
+import './css/FilmsWatched.css';
 import React from 'react';
 
 function Loading() {
     return (
       <div className="App">
         <header className="App-header">
-          <p> Loading ... </p>
+          <p> Loading... </p>
         </header>
       </div>
     );
