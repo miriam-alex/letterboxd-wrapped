@@ -16,6 +16,7 @@ function App() {
   
   const [pageIndex, setPageIndex] = useState(0);
   const [filmDataObj, setFilmDataObj] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   if (pageIndex === 0){
     return (
@@ -24,7 +25,8 @@ function App() {
   } else if (pageIndex === 1){
     return (
       <Directions setPageIndex={setPageIndex}
-                  setFilmDataObj={setFilmDataObj} />
+                  setFilmDataObj={setFilmDataObj} 
+                  setErrorMessage={setErrorMessage}/>
     );
   } else if (pageIndex === 2){
     return (
@@ -46,7 +48,7 @@ function App() {
     );
   } else if (pageIndex === 'error'){
     return (
-      <Error />
+      <Error errorMessage = {errorMessage} />
     );
   }
 }

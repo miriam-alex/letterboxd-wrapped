@@ -6,7 +6,7 @@ import * as Constants from './Constants.js';
 import * as Secret from './Secret';
 import Loading from './Loading';
 
-function Directions({setPageIndex, setFilmDataObj}) {
+function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
   const [userData,setUserData] = useState(null);
 
   // for querying movie data
@@ -59,7 +59,7 @@ function Directions({setPageIndex, setFilmDataObj}) {
           resolve();
         } catch {
           reject();
-          setError("error");
+          setError("Something has gone haywire. Sorry for the inconvience.");
         }
       }
     });
@@ -86,7 +86,7 @@ function Directions({setPageIndex, setFilmDataObj}) {
         // exceptions from actual bugs in components.
         (error) => {
           setLoading(false);
-          setError(error);
+          setError("There is an issue with retrieving data from the API. Please try again.");
           reject();
         }
       )
@@ -111,7 +111,7 @@ function Directions({setPageIndex, setFilmDataObj}) {
           // exceptions from actual bugs in components.
           (error) => {
             setLoading(false);
-            setError(error);
+            setError("There is an issue with retrieving data from the API. Please try again.");;
             reject()
           }
         )
@@ -127,16 +127,35 @@ function Directions({setPageIndex, setFilmDataObj}) {
       header: true,
       skipEmptyLines: true,
       complete: function (results) {
-        let resultData = results.data; // result data from all years
-        // result data from specified time period
-        let resultsInPeriod = resultData.filter(movie => {return movie.Date.slice(0,4) === Constants.YEAR;}); 
-        console.log(resultsInPeriod);
-        setUserData(resultsInPeriod);
+        console.log(event.target.files[0].name)
+
+        if (event.target.files[0].name !== 'diary.csv'){
+          setError("You might have attached the wrong file. Please try again.")
+        } else {
+          let resultData = results.data; // result data from all years
+          // result data from specified time period
+          let resultsInPeriod = null
+          try {
+            resultsInPeriod = resultData.filter(movie => {return movie['Watched Date'].slice(0,4) === Constants.YEAR;}); 
+
+            resultsInPeriod = resultsInPeriod.filter((resultsInPeriod, index, self) =>
+              index === self.findIndex((t) => 
+              (t.Date === resultsInPeriod.Date && t.Name === resultsInPeriod.Name &&
+              t.Rating === resultsInPeriod.Rating && t.Rewatch === resultsInPeriod.Rewatch &&
+              t.Tags === resultsInPeriod.Tags && t.Tags === resultsInPeriod.Tags &&
+              t['Watched Date'] === resultsInPeriod['Watched Date'] && t.Year === resultsInPeriod.Year)))
+            } catch {
+              setError("You might have attached the wrong file. Please try again.")
+            }
+          setUserData(resultsInPeriod);
+        }
       },
     });
   };
-  
-  if (loading === true) {
+  if (error){
+    setPageIndex('error')
+    setErrorMessage(error)
+  } else if (loading === true) {
     return (
       < Loading/>
     );
@@ -153,13 +172,12 @@ function Directions({setPageIndex, setFilmDataObj}) {
             2. Navigate to https://letterboxd.com/settings/ <br/>
             3. Click “Import & Export” <br/>
             4. Click "Export Your Data" <br/>
-            5. Unzip the folder and upload "watched.csv"
+            5. Unzip the folder and upload "diary.csv"
             </p>
           </div>
-          <div class="mb-3">
-            <input class="form-control" type="file" id="csvFile" accept=".csv" onChange={fileHandler}/>
+          <div className="mb-3">
+            <input className="form-control" type="file" id="csvFile" accept=".csv" onChange={fileHandler}/>
           </div>
-
           <br/>
         </header>
       </div>

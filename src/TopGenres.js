@@ -42,7 +42,7 @@ function TopGenres({onClick,filmDataObj}) {
           <p>{`5. ${genreData[4]}`}</p>     
     */
 
-    if (loading === false){
+    if (loading === false && genreData.length >= 5){
         return (
             <div className="App">
               <header className="FilmsWatched-Header">
@@ -53,6 +53,15 @@ function TopGenres({onClick,filmDataObj}) {
                 <p>{`4. ${genreData[3][0]}`}</p>
                 <p>{`5. ${genreData[4][0]}`}</p> 
                 
+              </header>
+            </div>
+          );
+    } else {
+        return (
+            <div className="App">
+              <header className="FilmsWatched-Header">
+                <p>{`We hate to say it, but need to watch more movies. 
+                    We only have (a bit of) information on ${genreData.length} of the genres you like.`} </p>
               </header>
             </div>
           );

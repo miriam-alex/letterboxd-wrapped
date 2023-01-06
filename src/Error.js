@@ -2,11 +2,11 @@ import './css/FilmsWatched.css';
 import './css/App.css';
 import React from 'react';
 
-function Error({onClick,filmDataObj}) {
+function Error({errorMessage, onClick}) {
     return (
       <div className="App">
         <header className="App-header">
-          <p> An error has occured. Sorry T_T </p>
+          <p className='App-body'> {`${errorMessage}`} </p>
         </header>
       </div>
     );
