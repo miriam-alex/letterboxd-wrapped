@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "5d840a945cff6ae5da94",
+    "revision": "998c1bc7c28dbf69be74",
     "url": "/letterboxd-wrapped/static/css/main.0b9a9499.chunk.css"
   },
   {
-    "revision": "5d840a945cff6ae5da94",
-    "url": "/letterboxd-wrapped/static/js/main.86dc7af4.chunk.js"
+    "revision": "998c1bc7c28dbf69be74",
+    "url": "/letterboxd-wrapped/static/js/main.e9ecbd28.chunk.js"
   },
   {
     "revision": "147b8490698af7bcf088",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/letterboxd-wrapped/static/js/3.e92f44bb.chunk.js"
   },
   {
-    "revision": "e41db89cacb7cc30be9ddc501b36330b",
+    "revision": "b6eec129a646fc58374090648183ee07",
     "url": "/letterboxd-wrapped/index.html"
   }
 ];
