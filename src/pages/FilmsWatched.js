@@ -1,7 +1,7 @@
-import './css/FilmsWatched.css';
-import './css/App.css';
+import '../css/FilmsWatched.css';
+import '../css/App.css';
 import React from 'react';
-import * as Constants from './Constants.js';
+import * as Constants from '../Constants.js';
 
 function FilmsWatched({onClick,filmDataObj}) {
     return (
@@ -9,7 +9,7 @@ function FilmsWatched({onClick,filmDataObj}) {
         <header className="FilmsWatched-Header">
           <p> {`In ${Constants.YEAR}, you watched`} </p>
           <h1> {`${filmDataObj.length} films`} </h1>
-          <button className = "button" onClick = {onClick}> Next </button>
+          <button type="button" class="btn btn-outline-light" href = '../css/FilmsWatched.css' onClick = {onClick}> Next </button>
         </header>
       </div>
     );

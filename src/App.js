@@ -2,12 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 
 // pages
-import Home from './Home';
-import Directions from './Directions';
-import FilmsWatched from './FilmsWatched';
-import Error from './Error';
-import MinutesWatched from './MinutesWatched';
-import TopGenres from './TopGenres';
+import Home from './pages/Home';
+import Directions from './pages/Directions';
+import FilmsWatched from './pages/FilmsWatched';
+import MinutesWatched from './pages/MinutesWatched';
+import TopGenres from './pages/TopGenres';
+import Error from './components/Error';
+import Animations from './css/Animations.css'
 
 function App() {
   // note: a state variable’s value never changes within a render. be careful.
@@ -20,11 +21,12 @@ function App() {
 
   if (pageIndex === 0){
     return (
-      <Home onClick={() => setPageIndex(1)}/>
+      <Home className = 'Page-Animation' onClick={() => setPageIndex(1)}/>
     );
   } else if (pageIndex === 1){
     return (
-      <Directions setPageIndex={setPageIndex}
+      <Directions className = 'Page-Animation'
+                  setPageIndex={setPageIndex}
                   setFilmDataObj={setFilmDataObj} 
                   setErrorMessage={setErrorMessage}/>
     );
@@ -48,7 +50,8 @@ function App() {
     );
   } else if (pageIndex === 'error'){
     return (
-      <Error errorMessage = {errorMessage} />
+      <Error errorMessage = {errorMessage} 
+              onClick = {() => setPageIndex(0)} />
     );
   }
 }

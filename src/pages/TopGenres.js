@@ -1,8 +1,9 @@
-import './css/FilmsWatched.css';
-import './css/App.css';
+import '../css/FilmsWatched.css';
+import '../css/App.css';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Loading from '../components/Loading';
 
 function TopGenres({onClick,filmDataObj}) {
     const [genreData,setGenreData] = useState(null);
@@ -24,23 +25,18 @@ function TopGenres({onClick,filmDataObj}) {
                     }
                 }
             }
+
             // taking top 5 genres
             let genreDataArray = Object.entries(genreDataObj).sort(function(a, b) {
                 return b[1] - a[1];
             });
             setGenreData(genreDataArray);
             console.log(genreDataArray)
+            
+            
             setLoading(false)
         }
     });
-
-    /*
-        <p>{`1. ${genreData[0]}`}</p><br/>
-          <p>{`2. ${genreData[1]}`}</p><br/>
-          <p>{`3. ${genreData[2]}`}</p><br/>
-          <p>{`4. ${genreData[3]}`}</p><br/>
-          <p>{`5. ${genreData[4]}`}</p>     
-    */
 
     if (loading === false && genreData.length >= 5){
         return (
@@ -56,12 +52,17 @@ function TopGenres({onClick,filmDataObj}) {
               </header>
             </div>
           );
+    } else if (loading === true){
+      return(
+        <Loading/>
+      );
     } else {
         return (
             <div className="App">
               <header className="FilmsWatched-Header">
-                <p>{`We hate to say it, but need to watch more movies. 
-                    We only have (a bit of) information on ${genreData.length} of the genres you like.`} </p>
+                <p> Watch more movies! <br/>
+                    We only have (a bit of) information <br/>
+                    on the genres you like. </p>
               </header>
             </div>
           );

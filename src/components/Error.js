@@ -1,5 +1,5 @@
-import './css/FilmsWatched.css';
-import './css/App.css';
+import '../css/FilmsWatched.css';
+import '../css/App.css';
 import React from 'react';
 
 function Error({errorMessage, onClick}) {
@@ -7,6 +7,7 @@ function Error({errorMessage, onClick}) {
       <div className="App">
         <header className="App-header">
           <p className='App-body'> {`${errorMessage}`} </p>
+          <button type="button" class="btn btn-outline-light" onClick = {onClick}> Return </button>
         </header>
       </div>
     );

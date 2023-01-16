@@ -1,5 +1,5 @@
-import './css/FilmsWatched.css';
-import './css/App.css';
+import '../css/FilmsWatched.css';
+import '../css/App.css';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -24,7 +24,7 @@ function MinutesWatched({onClick,filmDataObj}) {
           <p> In fact, you consumed </p>
           <h1> {`${minutesData}`} </h1>
           <p> minutes of film this year. </p>
-          <button className = "button" onClick = {onClick}> Next </button>
+          <button type="button" class="btn btn-outline-light" onClick = {onClick}> Next </button>
         </header>
       </div>
     );

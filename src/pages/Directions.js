@@ -1,10 +1,11 @@
-import './css/App.css';
+import '../css/App.css';
 import React, { useEffect } from 'react';
 import Papa from 'papaparse';
 import { useState } from 'react';
-import * as Constants from './Constants.js';
-import * as Secret from './Secret';
-import Loading from './Loading';
+import * as Constants from '../Constants.js';
+import * as Secret from '../Secret';
+import Loading from '../components/Loading';
+import Animations from '../css/Animations.css'
 
 function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
   const [userData,setUserData] = useState(null);
@@ -162,24 +163,26 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
   } else {
     return (
       <div className="App">
-        <header className="App-header">
-          <p>
-            Directions For Use
-          </p>
-          <div className='App-body'>
-            <p>
-            1. Log in to your account <br/>
-            2. Navigate to https://letterboxd.com/settings/ <br/>
-            3. Click “Import & Export” <br/>
-            4. Click "Export Your Data" <br/>
-            5. Unzip the folder and upload "diary.csv"
-            </p>
-          </div>
-          <div className="mb-3">
-            <input className="form-control" type="file" id="csvFile" accept=".csv" onChange={fileHandler}/>
-          </div>
-          <br/>
-        </header>
+          <header className="App-header">
+          <div className= 'fade-in-animation'>
+              <p>
+                Directions For Use
+              </p>
+              <div className='App-body'>
+                <p>
+                1. Log in to your account <br/>
+                2. Navigate to https://letterboxd.com/settings/ <br/>
+                3. Click “Import & Export” <br/>
+                4. Click "Export Your Data" <br/>
+                5. Unzip the folder and upload "diary.csv"
+                </p>
+              </div>
+              <div className="mb-3">
+                <input className="form-control" type="file" id="csvFile" accept=".csv" onChange={fileHandler}/>
+              </div>
+              <br/>
+            </div>
+          </header>
       </div>
     );
   }

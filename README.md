@@ -1,6 +1,6 @@
 # Current Status
 
-This project is currently in development.
+This project is currently in development. Check it out [here](https://miriam-alex.github.io/letterboxd-wrapped/).
 
 # Getting Started with Create React App
 
