@@ -30,7 +30,7 @@ function App() {
                   setFilmDataObj={setFilmDataObj} 
                   setErrorMessage={setErrorMessage}/>
     );
-  } else if (pageIndex === 2){
+  } else if (pageIndex === 400){
     return (
       <FilmsWatched onClick={() => setPageIndex(3)}
               filmDataObj = {filmDataObj}
@@ -42,7 +42,7 @@ function App() {
               filmDataObj = {filmDataObj}
       />
     );
-  } else if (pageIndex === 4){
+  } else if (pageIndex === 2){
     return (
       <TopGenres onClick={() => setPageIndex(5)}
               filmDataObj = {filmDataObj}
