@@ -7,8 +7,8 @@ import Directions from './pages/Directions';
 import FilmsWatched from './pages/FilmsWatched';
 import MinutesWatched from './pages/MinutesWatched';
 import TopGenres from './pages/TopGenres';
+import ProductionMap from './pages/ProductionMap';
 import Error from './components/Error';
-import Animations from './css/Animations.css'
 
 function App() {
   // note: a state variable’s value never changes within a render. be careful.
@@ -44,7 +44,13 @@ function App() {
     );
   } else if (pageIndex === 4){
     return (
-      <TopGenres onClick={() => setPageIndex(4)}
+      <TopGenres onClick={() => setPageIndex(5)}
+              filmDataObj = {filmDataObj}
+      />
+    );
+  } else if (pageIndex === 5){
+    return (
+      <ProductionMap onClick={() => setPageIndex(6)}
               filmDataObj = {filmDataObj}
       />
     );

@@ -5,68 +5,30 @@
 }
 
 .btn-outline-light{
-  padding: 15px 32px;
+  padding: 0.938rem 2rem;
   text-align: center;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   display: inline-block;
-  font-size: 20px;
-  margin: 10px;
+  font-size: 0.813rem;
+  margin: 0.625rem;
+}
+
+.bi-info-circle{
+  display: flex;
+  justify-content: right;
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  transition: 0.2s ease-in-out;
+}
+
+.bi-info-circle:hover{
+  fill-opacity: 0.3;
 }
 
 h1{
-  font-size: calc(120px + 2vmin);
-}
-
-.App-header {
-  background-image: linear-gradient(to top, #249494 0%, #330867 100%);
-  background-size: 180% 180%;
-  animation: gradient-animation 18s ease infinite;
-  color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(30px + 2vmin);
-}
-
-.App-body {
-  font-size: calc(13px + 2vmin);
-  text-align: left;
-  padding-top: 0px; 
-  padding-bottom: 0px; 
-}
-
-.App-bottom {
-  font-size: calc(1px + 1vmin);
-  text-align: center;
-  position: absolute;
-  bottom: 10px
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.transform{
-  transition: 0.5s ease-in-out;
-}
-
-.transform:hover{
-  transform: scale(1.03);
-}
-
-.circle{
-  width: calc(500px + 1vmin);
-  height: calc(500px + 1vmin);
-  border-radius: 50%;
-  border: none;
-  background: slateblue;
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
+  font-size: calc(7.5rem + 2vmin);
 }
 
 @keyframes gradient-animation {
@@ -80,3 +42,41 @@ h1{
     background-position: 0% 50%;
   }
 }
+
+.App-header {
+  background-image: linear-gradient(to top, #249494 0%, #330867 100%);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(0.938rem + 2vmin);
+}
+
+.App-body {
+  font-size: calc(0.625rem + 2vmin);
+  text-align: left;
+}
+
+.App-bottom {
+  font-size: calc(0.063rem + 1vmin);
+  text-align: center;
+  position: absolute;
+  bottom: 0.625rem
+}
+
+a {
+  color: #c6f7f9;
+}
+
+.transform{
+  transition: 0.5s ease-in-out;
+}
+
+.transform:hover{
+  transform: scale(1.03);
+}
+

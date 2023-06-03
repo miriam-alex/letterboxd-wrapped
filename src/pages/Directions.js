@@ -2,10 +2,8 @@ import '../css/App.css';
 import React, { useEffect } from 'react';
 import Papa from 'papaparse';
 import { useState } from 'react';
-import * as Constants from '../Constants.js';
 import * as Secret from '../Secret';
 import Loading from '../components/Loading';
-import Animations from '../css/Animations.css'
 
 function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
   const [userData,setUserData] = useState(null);
@@ -57,6 +55,7 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
         try {
           userDataCopy[index].Runtime = currMovieData.runtime;
           userDataCopy[index].Genres = currMovieData.genres;
+          userDataCopy[index].ProductionCountries = currMovieData.production_countries;
           resolve();
         } catch {
           reject();
@@ -137,7 +136,7 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
           // result data from specified time period
           let resultsInPeriod = null
           try {
-            resultsInPeriod = resultData.filter(movie => {return movie['Watched Date'].slice(0,4) === Constants.YEAR;}); 
+            resultsInPeriod = resultData.filter(movie => {return movie['Watched Date'].slice(0,4) === (new Date()).getFullYear().toString();}); 
 
             resultsInPeriod = resultsInPeriod.filter((resultsInPeriod, index, self) =>
               index === self.findIndex((t) => 
@@ -170,8 +169,8 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
               </p>
               <div className='App-body'>
                 <p>
-                1. Log in to your account <br/>
-                2. Navigate to https://letterboxd.com/settings/ <br/>
+                1. Log in to your Letterboxd account <br/>
+                2. Navigate to <a href="https://letterboxd.com/settings/">Settings</a>.<br/>
                 3. Click “Import & Export” <br/>
                 4. Click "Export Your Data" <br/>
                 5. Unzip the folder and upload "diary.csv"

@@ -21,10 +21,12 @@ function MinutesWatched({onClick,filmDataObj}) {
     return (
       <div className="App">
         <header className="App-header">
+        <div className= 'fade-in-animation'>
           <p> In fact, you consumed </p>
           <h1> {`${minutesData}`} </h1>
           <p> minutes of film this year. </p>
           <button type="button" class="btn btn-outline-light" onClick = {onClick}> Next </button>
+          </div>
         </header>
       </div>
     );
