@@ -1,7 +1,5 @@
 import '../css/App.css';
 import React from 'react';
-import { useState } from 'react';
-
 //      old button     <button className = "button" onClick = {onClick}> Absolutely. </button>
 
 function Home({onClick}) {

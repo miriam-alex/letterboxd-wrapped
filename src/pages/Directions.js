@@ -31,7 +31,7 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
   const fetchData = async function() {
     let userDataCopy = JSON.parse(JSON.stringify(userData));
     for (let i=0; i<userData.length; i++){
-      console.log(`looking @ movie ${i}`);
+      //console.log(`looking @ movie ${i}`);
 
       let movieJSON = userData[i];
       let movieID = await movieSearch(movieJSON.Name,movieJSON.Year);
@@ -40,7 +40,7 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
       
     }
     // cleaning out invalid media
-    console.log(userDataCopy.length)
+    //console.log(userDataCopy.length)
     const filteredUserDataCopy = userDataCopy.filter(movie => movie !== "invalid media")
     setUserData(filteredUserDataCopy)
     setAllQueriesCompleted(true)
@@ -54,6 +54,7 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
       } else {
         try {
           userDataCopy[index].Runtime = currMovieData.runtime;
+          userDataCopy[index].PosterPath = currMovieData.poster_path;
           userDataCopy[index].Genres = currMovieData.genres;
           userDataCopy[index].ProductionCountries = currMovieData.production_countries;
           resolve();
@@ -67,7 +68,7 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
 
   const movieSearch = async function(title,year) {
     return new Promise(function(resolve, reject) {
-      console.log(`${title} - ${year}`)
+      //console.log(`${title} - ${year}`)
       fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Secret.TMBD_API_KEY}&query=${title}&page=1&include_adult=true&year=${year}`)
       .then(res => res.json())
       .then(
@@ -75,7 +76,7 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
           //console.log("MOVIE SEARCHED")
           console.log(result);
           if (result.results.length === 0){ // basically occurs if you log tv shows on letterboxd or an invalid movie
-            console.log(`INVALID MEDIA IS ${title} - ${year}`)
+            //console.log(`INVALID MEDIA IS ${title} - ${year}`)
             resolve("invalid media")
           } else {
             resolve(result.results[0].id);
@@ -102,8 +103,8 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
         .then(res => res.json())
         .then(
           (result) => {
-            console.log("MOVIE DETAILED")
-            console.log(result)
+            //console.log("MOVIE DETAILED")
+            //console.log(result)
             resolve(result)
           },
           // Note: it's important to handle errors here
@@ -127,7 +128,7 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
       header: true,
       skipEmptyLines: true,
       complete: function (results) {
-        console.log(event.target.files[0].name)
+        //console.log(event.target.files[0].name)
 
         if (event.target.files[0].name !== 'diary.csv'){
           setError("You might have attached the wrong file. Please try again.")

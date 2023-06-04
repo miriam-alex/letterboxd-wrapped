@@ -1,37 +1,41 @@
 import '../css/FilmsWatched.css';
 import '../css/App.css';
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect} from "react";
 import Loading from '../components/Loading';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+
 
 
 function TopGenres({onClick,filmDataObj}) {
     const [genreData,setGenreData] = useState(null);
     const [loading,setLoading] = useState(true);
 
+    const COLORS = ['#1F363D', '#40798C', '#70A9A1', '#9EC1A3', "#CFE0C3"];
+
     const data = [
       {
-        genre: "Unpop1",
+        name: "Unpop1",
         value: 4000
       },
       {
-        genre: "Unpop2",
+        name: "Unpop2",
         value: 3000
       },
       {
-        genre: "Unpop3",
+        name: "Unpop3",
         value: 2000
       },
       {
-        genre: "Unpop4",
+        name: "Unpop4",
         value: 2780
       },
       {
-        genre: "Unpop5",
+        name: "Unpop5",
         value: 1890
       }
     ];
 
-    const [data2,setData2] = useState(data);
+    const [filteredData,setFilteredData] = useState(data);
 
     useEffect(()=> {
         if (genreData === null){
@@ -54,21 +58,15 @@ function TopGenres({onClick,filmDataObj}) {
                 return b[1] - a[1];
             });
 
-            let count = 0;
+            console.log(genreDataObj)
 
-            console.log("GENRE DATA")
             setGenreData(genreDataArray);
-            console.log(genreDataArray[0][0])
 
-            console.log("------")
             for (var i = 0; i < data.length; i++) {
-              data[i].genre = genreDataArray[i][0];
-              data[i].uv = genreDataArray[i][1];
+              data[i].name = genreDataArray[i][0];
+              data[i].value = genreDataArray[i][1];
           }
-
-            console.log(data)
-            console.log("------")
-            setData2(data);
+            setFilteredData(data);
 
             
             
@@ -76,21 +74,44 @@ function TopGenres({onClick,filmDataObj}) {
         }
     });
 
-    if (loading === false && genreData.length >= 5){
-      console.log("this is data 2")
-      console.log(data2)
+    const CustomTooltip = ({ active, payload, label }) => {
+      if (active && payload && payload.length) {
+        return (
+          <div className="genres-tooltip">
+            <p> You've watched {payload[0].value} movies {"\n"} tagged {payload[0].name}. </p>
+          </div>
+        );
+      }
+    
+      return null;
+    };
+
+    if (loading === false && filteredData.length >= 5){
         return (
             <div className="App">
-              <div className = "films-watched-header">
+              <div className = "top-genres-header">
                 <div className= 'fade-in-animation'>
-                  <h1 className = "title" > You're a genre connoisseur {'<3'} </h1>
-
-                  <div className = "bar-chart">
-                  
+                  <h1 className = "title" > One might call you a genre connoisseur. </h1>
+                  <div className = "pie-chart">
+                    <ResponsiveContainer width="100%" height={310}>
+                      <PieChart>
+                        <Pie
+                          dataKey="value"
+                          data={filteredData}
+                          innerRadius={50}
+                          outerRadius={155}
+                          fill="#8884d8"
+                        >
+                        {data.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                        </Pie>
+                        <Tooltip content={<CustomTooltip />} />
+                      </PieChart>
+                    </ResponsiveContainer>
                   </div>
-                  
                 </div>
-              <button type="button" class="btn btn-outline-light" href = '../css/FilmsWatched.css' onClick = {onClick}> Next </button>
+                <button type="button" class="btn btn-outline-light" href = '../css/FilmsWatched.css' onClick = {onClick}> Next </button>
               </div>
             </div>
           );

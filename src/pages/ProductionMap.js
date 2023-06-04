@@ -43,15 +43,15 @@ function ProductionMap({onClick,filmDataObj}) {
         
         <div className="App">
             <div className='background'>
-        
+
             <div className = "practice-map">
-            <div className= 'fade-in-animation' >
+                
                     <div className = "map-header">
                         <header className = 'map-title' > {mapMessage} </header>
                         <button type="button" class="btn btn-outline-light" href = '../css/FilmsWatched.css' onClick = {onClick}> Next </button>
                     </div>
                 
-                    </div>  
+                    
                 <VectorMap className = "map-hack"
                     map= {worldMill}
                     backgroundColor='transparent'
@@ -94,7 +94,6 @@ function ProductionMap({onClick,filmDataObj}) {
             
         </div>
         </div>
-        
       );
     
   }

@@ -1,0 +1,18 @@
+.large-number {
+    fill: azure;
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
+}
+
+.alignment-box{
+    display:flex; 
+    flex-direction:row;
+    align-content: flex-start;
+    margin-right: 2rem;
+}
+
+.example-pink {
+    color: #fff;
+    background-color: rgb(255, 0, 255);
+}

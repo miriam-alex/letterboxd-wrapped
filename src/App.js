@@ -9,6 +9,7 @@ import MinutesWatched from './pages/MinutesWatched';
 import TopGenres from './pages/TopGenres';
 import ProductionMap from './pages/ProductionMap';
 import Error from './components/Error';
+import FavoriteMovies from './pages/FavoriteMovies';
 
 function App() {
   // note: a state variable’s value never changes within a render. be careful.
@@ -30,7 +31,7 @@ function App() {
                   setFilmDataObj={setFilmDataObj} 
                   setErrorMessage={setErrorMessage}/>
     );
-  } else if (pageIndex === 400){
+  } else if (pageIndex === 2){
     return (
       <FilmsWatched onClick={() => setPageIndex(3)}
               filmDataObj = {filmDataObj}
@@ -42,7 +43,7 @@ function App() {
               filmDataObj = {filmDataObj}
       />
     );
-  } else if (pageIndex === 2){
+  } else if (pageIndex === 4){
     return (
       <TopGenres onClick={() => setPageIndex(5)}
               filmDataObj = {filmDataObj}
@@ -51,6 +52,12 @@ function App() {
   } else if (pageIndex === 5){
     return (
       <ProductionMap onClick={() => setPageIndex(6)}
+              filmDataObj = {filmDataObj}
+      />
+    );
+  } else if (pageIndex === 6){
+    return (
+      <FavoriteMovies onClick={() => setPageIndex(6)}
               filmDataObj = {filmDataObj}
       />
     );

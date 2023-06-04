@@ -2,7 +2,6 @@ import '../css/FilmsWatched.css';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Animations from '../css/Animations.css'
 
 function Loading() {
     let genreList = ['Romcoms', 'Anime','Dramas','Horror','Musicals','Plays']

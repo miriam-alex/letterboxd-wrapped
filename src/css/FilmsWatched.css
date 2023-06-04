@@ -1,5 +1,5 @@
 
-h1{
+.counter{
   font-size: calc(6.25rem + 2vmin);
 }
 
@@ -53,7 +53,7 @@ h1{
 
 .practice-map {
   position:absolute;
-  height: 61.5%;
+  height: 64.3%;
   width: 100%;
   background-image: linear-gradient(to right, #249494 0%, #330867 100%);
 
@@ -66,7 +66,7 @@ h1{
 }
 
 .top-genres-header {
-  background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+  background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #833ba0 33%, #6346af 66%, #2f5fb8 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -74,12 +74,27 @@ h1{
   justify-content: center;
   font-size: calc(1.25rem + 2vmin);
   color: white;
+  overflow-wrap:break-word;
 }
 
-.bar-chart {
-  width: 100%;
-  height: 40%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.genres-tooltip {
+  background: rgba(255, 255, 255, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  padding: 0.6rem;
+  padding-bottom: 0rem;
+}
+
+.pie-chart {
+  padding: 2rem;
+  padding-bottom: 3.5rem;
+}
+
+.top-five {
+  display:flex; 
+  flex-direction:row;
 }
