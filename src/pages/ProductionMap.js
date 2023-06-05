@@ -1,5 +1,7 @@
 import '../css/FilmsWatched.css';
 import '../css/App.css';
+import '../css/Animations.css';
+
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -10,6 +12,7 @@ import { worldMill } from '@react-jvectormap/world'
 function ProductionMap({onClick,filmDataObj}) {
     const [mapData,setMapData] = useState(null);
     const [mapMessage, setMapMessage] = useState(null);
+    const [helpMessage, setHelpMessage] = useState(null);
 
     useEffect(()=> {
         console.log("countries effected!")
@@ -28,12 +31,21 @@ function ProductionMap({onClick,filmDataObj}) {
                 }
             }
             setMapData(mapData);
-            if (mapData.length === 1){
-                setMapMessage("You're more of a domestic movie watcher.")
-            } else if (mapData.length < 10){
-                setMapMessage("You've been around the globe.")
+
+            let countryNum = Object.keys(mapData).length
+
+            if (countryNum === 0){
+                setMapMessage("While this map is empty, I assume you've been outside.")
+                setHelpMessage("(How was touching grass?)")
+            } else if (countryNum === 1){
+                setMapMessage("Others might call you a domestic movie watcher.")
+                setHelpMessage("(Hover over the darkened country to see where your films were produced.)")
+            } else if (countryNum < 10){
+                setMapMessage("Others might call you a bonafide globe trotter.")
+                setHelpMessage("(Hover to see where your films were produced.)")
             } else {
-                setMapMessage("You're a cinematic jet-setter.")
+                setMapMessage("Others might call you a cinematic jet-setter.")
+                setHelpMessage("(Hover to see where your (diverse) films were produced.)")
             }
             console.log(mapData); 
         }
@@ -43,11 +55,10 @@ function ProductionMap({onClick,filmDataObj}) {
         
         <div className="App">
             <div className='background'>
-
             <div className = "practice-map">
-                
                     <div className = "map-header">
                         <header className = 'map-title' > {mapMessage} </header>
+                        <p className = 'abed-nadir'> {helpMessage} </p>
                         <button type="button" class="btn btn-outline-light" href = '../css/FilmsWatched.css' onClick = {onClick}> Next </button>
                     </div>
                 
@@ -57,8 +68,8 @@ function ProductionMap({onClick,filmDataObj}) {
                     backgroundColor='transparent'
                     zoomOnScroll={false}
                     containerStyle={{
-                    width: '50%',
-                    height: '50%'
+                    width: '40%',
+                    height: '40%'
                     }}
                     containerClassName="map"
                     regionStyle={{

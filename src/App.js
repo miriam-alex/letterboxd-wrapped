@@ -10,6 +10,8 @@ import TopGenres from './pages/TopGenres';
 import ProductionMap from './pages/ProductionMap';
 import Error from './components/Error';
 import FavoriteMovies from './pages/FavoriteMovies';
+import AboutMe from './pages/AboutMe';
+import Final from './pages/Final';
 
 function App() {
   // note: a state variable’s value never changes within a render. be careful.
@@ -20,9 +22,16 @@ function App() {
   const [filmDataObj, setFilmDataObj] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
 
-  if (pageIndex === 0){
+  if (pageIndex === -1){
     return (
-      <Home className = 'Page-Animation' onClick={() => setPageIndex(1)}/>
+      <AboutMe onClick={() => setPageIndex(0)}/>
+    );
+  } else if (pageIndex === 0){
+    return (
+      <Home className = 'Page-Animation' 
+            onClick={() => setPageIndex(1)}
+            onClickInfo={() => setPageIndex(-1)}               
+      />
     );
   } else if (pageIndex === 1){
     return (
@@ -57,7 +66,13 @@ function App() {
     );
   } else if (pageIndex === 6){
     return (
-      <FavoriteMovies onClick={() => setPageIndex(6)}
+      <FavoriteMovies onClick={() => setPageIndex(7)}
+              filmDataObj = {filmDataObj}
+      />
+    );
+  } else if (pageIndex === 7){
+    return (
+      <Final onClick={() => setPageIndex(0)}
               filmDataObj = {filmDataObj}
       />
     );

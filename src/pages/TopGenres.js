@@ -1,16 +1,16 @@
 import '../css/FilmsWatched.css';
 import '../css/App.css';
+import '../css/Animations.css';
+
 import React, { useState, useEffect} from "react";
 import Loading from '../components/Loading';
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
-
+import PieChartComponent from '../components/PieChartComponent';
 
 
 function TopGenres({onClick,filmDataObj}) {
-    const [genreData,setGenreData] = useState(null);
     const [loading,setLoading] = useState(true);
-
-    const COLORS = ['#1F363D', '#40798C', '#70A9A1', '#9EC1A3', "#CFE0C3"];
+    const [filteredData,setFilteredData] = useState(null);
+    const [canDisplay, setCanDisplay] = useState(true);
 
     const data = [
       {
@@ -35,80 +35,48 @@ function TopGenres({onClick,filmDataObj}) {
       }
     ];
 
-    const [filteredData,setFilteredData] = useState(data);
-
     useEffect(()=> {
-        if (genreData === null){
+        if (filteredData === null){
             let genreDataObj = {}
             for (let i=0; i<filmDataObj.length; i++){
                 for (let j=0; j<filmDataObj[i].Genres.length;j++){
                     let currGenre = filmDataObj[i].Genres[j].name;
                     if (genreDataObj.hasOwnProperty(currGenre)){
                         genreDataObj[currGenre] = genreDataObj[currGenre] + 1;
-                        // console.log(`${currGenre} pops up ${genreDataObj[currGenre]} times!`)
                     } else {
                         genreDataObj[currGenre] = 1;
-                        // console.log(`${currGenre} pops up once`)
                     }
                 }
             }
 
-            // taking top 5 genres
+            // sorting genres by movie count
             let genreDataArray = Object.entries(genreDataObj).sort(function(a, b) {
                 return b[1] - a[1];
             });
 
-            console.log(genreDataObj)
-
-            setGenreData(genreDataArray);
-
-            for (var i = 0; i < data.length; i++) {
-              data[i].name = genreDataArray[i][0];
-              data[i].value = genreDataArray[i][1];
-          }
-            setFilteredData(data);
-
-            
-            
+            // actually taking top 5
+            if (genreDataArray.length >= 5){
+              for (var i = 0; i < data.length; i++) {
+                data[i].name = genreDataArray[i][0];
+                data[i].value = genreDataArray[i][1];
+              } 
+              setFilteredData(data);
+            } else {
+              setCanDisplay(false);
+            }
             setLoading(false)
+          }
         }
-    });
+    );
 
-    const CustomTooltip = ({ active, payload, label }) => {
-      if (active && payload && payload.length) {
-        return (
-          <div className="genres-tooltip">
-            <p> You've watched {payload[0].value} movies {"\n"} tagged {payload[0].name}. </p>
-          </div>
-        );
-      }
-    
-      return null;
-    };
-
-    if (loading === false && filteredData.length >= 5){
+    if (loading === false && canDisplay){
         return (
             <div className="App">
               <div className = "top-genres-header">
                 <div className= 'fade-in-animation'>
                   <h1 className = "title" > One might call you a genre connoisseur. </h1>
                   <div className = "pie-chart">
-                    <ResponsiveContainer width="100%" height={310}>
-                      <PieChart>
-                        <Pie
-                          dataKey="value"
-                          data={filteredData}
-                          innerRadius={50}
-                          outerRadius={155}
-                          fill="#8884d8"
-                        >
-                        {data.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                        </Pie>
-                        <Tooltip content={<CustomTooltip />} />
-                      </PieChart>
-                    </ResponsiveContainer>
+                    <PieChartComponent data = {filteredData} />
                   </div>
                 </div>
                 <button type="button" class="btn btn-outline-light" href = '../css/FilmsWatched.css' onClick = {onClick}> Next </button>
@@ -122,14 +90,14 @@ function TopGenres({onClick,filmDataObj}) {
     } else {
         return (
             <div className="App">
-              <div className= 'fade-in-animation'>
               <header className="films-watched-header">
-                <p> Watch more movies! <br/>
-                    We only have (a bit of) information <br/>
-                    on the genres you like. </p>
-                    <button type="button" class="btn btn-outline-light" href = '../css/FilmsWatched.css' onClick = {onClick}> Next </button>
+                <div className= 'fade-in-animation'>
+                  <p> Some might wonder <br/>
+                      how you survive on so little media. <br/>
+                      Maybe you're off the grid. </p>
+                  <button type="button" class="btn btn-outline-light" href = '../css/FilmsWatched.css' onClick = {onClick}> Next </button>
+                </div>
               </header>
-              </div>
             </div>
           );
     }

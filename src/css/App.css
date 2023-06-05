@@ -4,6 +4,21 @@
   font-weight: 300;
 }
 
+.info-button {
+  display: flex;
+  justify-content: right;
+  position: absolute;
+  transition: 0.2s ease-in-out;
+  top: 1.25rem;
+  right: 1.25rem;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  background-color: transparent;
+  
+}
+
 .btn-outline-light{
   padding: 0.938rem 2rem;
   text-align: center;
@@ -14,6 +29,7 @@
   margin: 0.625rem;
 }
 
+/*
 .bi-info-circle{
   display: flex;
   justify-content: right;
@@ -22,6 +38,7 @@
   right: 1.25rem;
   transition: 0.2s ease-in-out;
 }
+*/
 
 .bi-info-circle:hover{
   fill-opacity: 0.3;
@@ -56,6 +73,33 @@ h1{
   font-size: calc(0.938rem + 2vmin);
 }
 
+.App-header-2 {
+  background-image: linear-gradient(to top, #180c5f 0%, #8a0000 100%);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(0.938rem + 2vmin);
+}
+
+.App-header-3 {
+  background-image: linear-gradient(to top, #581aae 0%, #bd1b7a 100%);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(0.938rem + 2vmin);
+}
+
+
 .App-body {
   font-size: calc(0.625rem + 2vmin);
   text-align: left;
@@ -78,5 +122,9 @@ a {
 
 .transform:hover{
   transform: scale(1.03);
+}
+
+a {
+  text-decoration: none;
 }
 

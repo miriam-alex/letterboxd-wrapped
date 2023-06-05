@@ -5,14 +5,19 @@
     position: absolute;
 }
 
-.alignment-box{
-    display:flex; 
-    flex-direction:row;
-    align-content: flex-start;
-    margin-right: 2rem;
+.poster {
+    border-radius: 0.2rem;
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
 }
 
-.example-pink {
-    color: #fff;
-    background-color: rgb(255, 0, 255);
+.alignment-box{
+    padding: 1rem;
+    padding-bottom: 0.7rem;
+    width: 11rem;
+}
+
+.caption {
+    font-size: 0.7rem;
 }

@@ -1,5 +1,7 @@
 import '../css/FilmsWatched.css';
 import '../css/App.css';
+import '../css/Animations.css';
+
 import React from 'react';
 
 function FilmsWatched({onClick,filmDataObj}) {

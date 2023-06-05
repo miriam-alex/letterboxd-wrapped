@@ -1,9 +1,11 @@
 import '../css/App.css';
+import '../css/Animations.css';
 import React, { useEffect } from 'react';
 import Papa from 'papaparse';
 import { useState } from 'react';
 import * as Secret from '../Secret';
 import Loading from '../components/Loading';
+
 
 function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
   const [userData,setUserData] = useState(null);
@@ -18,8 +20,8 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
       fetchData()
       setLoading(true)
     } else if (allQueriesCompleted === true && loading === true){
-      console.log("all queries completed. final user data below")
-      console.log(userData)
+      //console.log("all queries completed. final user data below")
+      //console.log(userData)
       setFilmDataObj(userData);
       setLoading(false)
       setPageIndex(2)
@@ -74,7 +76,7 @@ function Directions({setPageIndex, setFilmDataObj,setErrorMessage}) {
       .then(
         (result) => {
           //console.log("MOVIE SEARCHED")
-          console.log(result);
+          //console.log(result);
           if (result.results.length === 0){ // basically occurs if you log tv shows on letterboxd or an invalid movie
             //console.log(`INVALID MEDIA IS ${title} - ${year}`)
             resolve("invalid media")

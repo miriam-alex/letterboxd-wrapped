@@ -24,6 +24,12 @@
   line-height: 2;
 }
 
+.abed-nadir {
+  font-size: 1.3rem;
+  opacity: 0.5;
+  color: white;
+}
+
 .genre-loading {
   opacity: 1;
   animation: fade 2s ease-in-out;
@@ -53,7 +59,7 @@
 
 .practice-map {
   position:absolute;
-  height: 64.3%;
+  height: 70%;
   width: 100%;
   background-image: linear-gradient(to right, #249494 0%, #330867 100%);
 
@@ -97,4 +103,18 @@
 .top-five {
   display:flex; 
   flex-direction:row;
+  flex-flow: row wrap;
+}
+
+.favorite-movies-title {
+  font-size: 2rem;
+  line-height: 2;
+}
+
+.about-me-paragraph {
+  padding: 1rem;
+  padding-left: 30rem;
+  padding-right: 30rem;
+  font-size: medium;
+
 }
