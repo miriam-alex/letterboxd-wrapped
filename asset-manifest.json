@@ -1,7 +1,7 @@
 {
   "main.css": "/letterboxd-wrapped/static/css/main.27f63648.chunk.css",
-  "main.js": "/letterboxd-wrapped/static/js/main.cd65602b.chunk.js",
-  "main.js.map": "/letterboxd-wrapped/static/js/main.cd65602b.chunk.js.map",
+  "main.js": "/letterboxd-wrapped/static/js/main.cb39f21e.chunk.js",
+  "main.js.map": "/letterboxd-wrapped/static/js/main.cb39f21e.chunk.js.map",
   "runtime~main.js": "/letterboxd-wrapped/static/js/runtime~main.d8c7663a.js",
   "runtime~main.js.map": "/letterboxd-wrapped/static/js/runtime~main.d8c7663a.js.map",
   "static/js/2.ac9c7c24.chunk.js": "/letterboxd-wrapped/static/js/2.ac9c7c24.chunk.js",
@@ -9,7 +9,7 @@
   "static/js/3.76e9ccd4.chunk.js": "/letterboxd-wrapped/static/js/3.76e9ccd4.chunk.js",
   "static/js/3.76e9ccd4.chunk.js.map": "/letterboxd-wrapped/static/js/3.76e9ccd4.chunk.js.map",
   "index.html": "/letterboxd-wrapped/index.html",
-  "precache-manifest.2d76391396dd2ff9be9877085e04aaea.js": "/letterboxd-wrapped/precache-manifest.2d76391396dd2ff9be9877085e04aaea.js",
+  "precache-manifest.96eae2e675cc11654796cffe31a71cae.js": "/letterboxd-wrapped/precache-manifest.96eae2e675cc11654796cffe31a71cae.js",
   "service-worker.js": "/letterboxd-wrapped/service-worker.js",
   "static/css/main.27f63648.chunk.css.map": "/letterboxd-wrapped/static/css/main.27f63648.chunk.css.map"
 }
