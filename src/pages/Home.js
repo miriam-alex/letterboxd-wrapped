@@ -7,9 +7,11 @@ function Home({onClick, onClickInfo}) {
     return (
       <div className="App">
         <header className="App-header">
-          <p className = "transform">
-          Are you a Letterboxd user <br/> with an undying need <br/> to quantify your love for film? <br/> 
-          </p>
+          <div className = "rem-padding">
+            <p className = "transform">
+            Are you a Letterboxd user <br/> with an undying need <br/> to quantify your love for film? <br/> 
+            </p>
+          </div>
           <button type="button" className="btn btn-outline-light" href="App.css" onClick = {onClick}> Absolutely. </button>
             <button className = "info-button" onClick = {onClickInfo} >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFFFFF" class="bi bi-info-circle" viewBox="0 0 16 16">

@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import MovieNumber from '../components/MovieNumber';
 
 
-function FavoriteMovies({onClick,filmDataObj}) {
+function FavoriteMovies({onClick,filmDataObj, setTopMovies}) {
     const [pageState, setPageState] = useState("loading");
     const [canLoad, setCanLoad] = useState(true)
 
@@ -16,7 +16,10 @@ function FavoriteMovies({onClick,filmDataObj}) {
             filmDataObj = filmDataObj.sort((a,b) => parseFloat(b.Rating) - parseFloat(a.Rating));
             //console.log(filmDataObj)
             if (filmDataObj.length < 5){
+                setTopMovies("N/A")
                 setCanLoad(false);
+            } else {
+                setTopMovies(filmDataObj)
             }
             setPageState("done")
         }

@@ -1,5 +1,6 @@
 import '../css/Component.css';
 import '../css/App.css';
+import '../css/Animations.css';
 import React from 'react';
 import { useEffect } from 'react';
 
@@ -28,16 +29,17 @@ function MovieNumber({title, image_slug, rating, lb_url}) {
 
     return (
       <div className="App">
+        <div className= 'fade-in-animation'>
         <div className = 'alignment-box'>
           <a href={lb_url} target="_blank" rel="noopener noreferrer">
             <img className = 'poster' 
                     src={url}
                     alt={altText}
-                    height={300}
                 />
           </a> 
         </div>
         <p className = 'caption' > Your Rating: {stars}</p>
+        </div>
       </div>
     );
   }

@@ -7,9 +7,9 @@ import Loading from '../components/Loading';
 import PieChartComponent from '../components/PieChartComponent';
 
 
-function TopGenres({onClick,filmDataObj}) {
+function TopGenres({onClick,genreData}) {
     const [loading,setLoading] = useState(true);
-    const [filteredData,setFilteredData] = useState(null);
+    const [displayData,setDisplayData] = useState(null);
     const [canDisplay, setCanDisplay] = useState(true);
 
     const data = [
@@ -36,31 +36,14 @@ function TopGenres({onClick,filmDataObj}) {
     ];
 
     useEffect(()=> {
-        if (filteredData === null){
-            let genreDataObj = {}
-            for (let i=0; i<filmDataObj.length; i++){
-                for (let j=0; j<filmDataObj[i].Genres.length;j++){
-                    let currGenre = filmDataObj[i].Genres[j].name;
-                    if (genreDataObj.hasOwnProperty(currGenre)){
-                        genreDataObj[currGenre] = genreDataObj[currGenre] + 1;
-                    } else {
-                        genreDataObj[currGenre] = 1;
-                    }
-                }
-            }
-
-            // sorting genres by movie count
-            let genreDataArray = Object.entries(genreDataObj).sort(function(a, b) {
-                return b[1] - a[1];
-            });
-
+        if (displayData === null){
             // actually taking top 5
-            if (genreDataArray.length >= 5){
+            if (genreData.length >= 5){
               for (var i = 0; i < data.length; i++) {
-                data[i].name = genreDataArray[i][0];
-                data[i].value = genreDataArray[i][1];
+                data[i].name = genreData[i][0];
+                data[i].value = genreData[i][1];
               } 
-              setFilteredData(data);
+              setDisplayData(data);
             } else {
               setCanDisplay(false);
             }
@@ -76,7 +59,7 @@ function TopGenres({onClick,filmDataObj}) {
                 <div className= 'fade-in-animation'>
                   <h1 className = "title" > One might call you a genre connoisseur. </h1>
                   <div className = "pie-chart">
-                    <PieChartComponent data = {filteredData} />
+                    <PieChartComponent data = {displayData} />
                   </div>
                 </div>
                 <button type="button" class="btn btn-outline-light" href = '../css/FilmsWatched.css' onClick = {onClick}> Next </button>

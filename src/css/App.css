@@ -60,6 +60,10 @@ h1{
   }
 }
 
+.rem-padding {
+  padding: 1rem;
+}
+
 .App-header {
   background-image: linear-gradient(to top, #249494 0%, #330867 100%);
   background-size: 180% 180%;
@@ -114,14 +118,6 @@ h1{
 
 a {
   color: #c6f7f9;
-}
-
-.transform{
-  transition: 0.5s ease-in-out;
-}
-
-.transform:hover{
-  transform: scale(1.03);
 }
 
 a {

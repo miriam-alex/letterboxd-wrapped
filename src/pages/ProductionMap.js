@@ -9,29 +9,12 @@ import { VectorMap } from "@react-jvectormap/core"
 import { worldMill } from '@react-jvectormap/world'
 
 
-function ProductionMap({onClick,filmDataObj}) {
-    const [mapData,setMapData] = useState(null);
+function ProductionMap({onClick,mapData}) {
     const [mapMessage, setMapMessage] = useState(null);
     const [helpMessage, setHelpMessage] = useState(null);
 
     useEffect(()=> {
-        console.log("countries effected!")
-
-        if (mapData === null){
-            let mapData = []
-            for (let i=0; i<filmDataObj.length; i++){
-                let productionCountries = filmDataObj[i].ProductionCountries;
-                for (let i=0; i<productionCountries.length; i++){
-                    let productionCountry = productionCountries[i].iso_3166_1;
-                    if (!mapData.includes(productionCountry)){
-                        mapData[productionCountry] = 1;
-                    } else {
-                        mapData[productionCountry] += 1;
-                    }
-                }
-            }
-            setMapData(mapData);
-
+        if (helpMessage === null){
             let countryNum = Object.keys(mapData).length
 
             if (countryNum === 0){
@@ -47,7 +30,7 @@ function ProductionMap({onClick,filmDataObj}) {
                 setMapMessage("Others might call you a cinematic jet-setter.")
                 setHelpMessage("(Hover to see where your (diverse) films were produced.)")
             }
-            console.log(mapData); 
+            //console.log(mapData); 
         }
     });
 
@@ -56,9 +39,12 @@ function ProductionMap({onClick,filmDataObj}) {
         <div className="App">
             <div className='background'>
             <div className = "practice-map">
+
                     <div className = "map-header">
-                        <header className = 'map-title' > {mapMessage} </header>
-                        <p className = 'abed-nadir'> {helpMessage} </p>
+                        <div className = "rem-padding">
+                            <header className = 'map-title' > {mapMessage} </header>
+                            <p className = 'abed-nadir'> {helpMessage} </p>
+                        </div>
                         <button type="button" class="btn btn-outline-light" href = '../css/FilmsWatched.css' onClick = {onClick}> Next </button>
                     </div>
                 
@@ -94,7 +80,7 @@ function ProductionMap({onClick,filmDataObj}) {
                     regions: [
                         {
                         values: mapData, //this is your data
-                        scale: ["#146804", "#ff0000"], //your color game's here
+                        scale: ["#4d9e41", "#9e4169"], //your color game's here
                         normalizeFunction: "polynomial"
                         }
                     ]

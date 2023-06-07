@@ -21,6 +21,11 @@ function App() {
   const [pageIndex, setPageIndex] = useState(0);
   const [filmDataObj, setFilmDataObj] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
+  const [minutesData, setMinutesData] = useState(null)
+  const [genreData, setGenreData] = useState(null)
+  const [mapData, setMapData] = useState(null)
+  const [topMovies, setTopMovies] = useState(null)
+
 
   if (pageIndex === -1){
     return (
@@ -38,7 +43,11 @@ function App() {
       <Directions className = 'Page-Animation'
                   setPageIndex={setPageIndex}
                   setFilmDataObj={setFilmDataObj} 
-                  setErrorMessage={setErrorMessage}/>
+                  setErrorMessage={setErrorMessage}
+                  setMinutesData={setMinutesData}
+                  setGenreData={setGenreData}
+                  setMapData={setMapData}
+                  />
     );
   } else if (pageIndex === 2){
     return (
@@ -49,31 +58,34 @@ function App() {
   } else if (pageIndex === 3){
     return (
       <MinutesWatched onClick={() => setPageIndex(4)}
-              filmDataObj = {filmDataObj}
+              minutesData={minutesData}
       />
     );
   } else if (pageIndex === 4){
     return (
       <TopGenres onClick={() => setPageIndex(5)}
-              filmDataObj = {filmDataObj}
+              genreData = {genreData}
       />
     );
   } else if (pageIndex === 5){
     return (
       <ProductionMap onClick={() => setPageIndex(6)}
-              filmDataObj = {filmDataObj}
+                     mapData = {mapData}
       />
     );
   } else if (pageIndex === 6){
     return (
       <FavoriteMovies onClick={() => setPageIndex(7)}
               filmDataObj = {filmDataObj}
+              setTopMovies = {setTopMovies}
       />
     );
   } else if (pageIndex === 7){
     return (
       <Final onClick={() => setPageIndex(0)}
-              filmDataObj = {filmDataObj}
+              topMovies = {topMovies}
+              minutesData = {minutesData}
+              genreData = {genreData}
       />
     );
   } else if (pageIndex === 'error'){
