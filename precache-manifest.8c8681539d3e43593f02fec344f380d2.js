@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "de7ba3d0bda170056016",
-    "url": "/letterboxd-wrapped/static/css/main.27f63648.chunk.css"
+    "revision": "ce9cb0b770013a2cb9f7",
+    "url": "/letterboxd-wrapped/static/css/main.48422070.chunk.css"
   },
   {
-    "revision": "de7ba3d0bda170056016",
-    "url": "/letterboxd-wrapped/static/js/main.2b32925e.chunk.js"
+    "revision": "ce9cb0b770013a2cb9f7",
+    "url": "/letterboxd-wrapped/static/js/main.6b67bd55.chunk.js"
   },
   {
     "revision": "364cf254656b0c978b63",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/letterboxd-wrapped/static/js/3.76e9ccd4.chunk.js"
   },
   {
-    "revision": "7490a14af6bbcf994cc4065b89542535",
+    "revision": "9fc25cca1645290930b69c768763ac72",
     "url": "/letterboxd-wrapped/index.html"
   }
 ];
