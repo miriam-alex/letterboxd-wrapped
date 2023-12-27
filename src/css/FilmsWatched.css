@@ -1,5 +1,4 @@
-
-.counter{
+.counter {
   font-size: calc(6.25rem + 2vmin);
 }
 
@@ -19,7 +18,7 @@
   text-align: left;
 }
 
-.title{
+.title {
   font-size: calc(1.5rem + 2vmin);
   line-height: 2;
 }
@@ -36,19 +35,26 @@
 }
 
 @keyframes fade {
-  0%,100% { opacity: 0 }
-  50% { opacity: 1 }
+
+  0%,
+  100% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1
+  }
 }
 
 .map-title {
   font-size: calc(1.563rem + 1vmin);
   color: white;
-  padding:0.625rem;
+  padding: 0.625rem;
   height: 30%;
 }
 
 .map-header {
-  padding:5.5rem;
+  padding: 5.5rem;
   padding-bottom: 3rem;
   background-image: linear-gradient(to right, #249494 0%, #330867 100%);
 }
@@ -59,7 +65,7 @@
 }
 
 .practice-map {
-  position:absolute;
+  position: absolute;
   height: 50%;
   width: 100%;
 
@@ -82,7 +88,7 @@
   justify-content: center;
   font-size: calc(1.25rem + 2vmin);
   color: white;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
 }
 
 .genres-tooltip {
@@ -104,8 +110,14 @@
   padding-bottom: 3.5rem;
 }
 
+.top-five-no-content {
+  font-size: calc(0.625rem + 2vmin);
+  text-align: center;
+  padding: 1rem;
+}
+
 .top-five {
-  display:flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -126,7 +138,7 @@
 
 }
 
-.final-col-1{
+.final-col-1 {
   padding-top: 2rem;
   display: flex;
   justify-content: center;

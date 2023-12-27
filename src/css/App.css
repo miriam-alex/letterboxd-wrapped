@@ -16,10 +16,10 @@
   overflow: hidden;
   outline: none;
   background-color: transparent;
-  
+
 }
 
-.btn-outline-light{
+.btn-outline-light {
   padding: 0.938rem 2rem;
   text-align: center;
   text-decoration: none;
@@ -29,22 +29,11 @@
   margin: 0.625rem;
 }
 
-/*
-.bi-info-circle{
-  display: flex;
-  justify-content: right;
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  transition: 0.2s ease-in-out;
-}
-*/
-
-.bi-info-circle:hover{
+.bi-info-circle:hover {
   fill-opacity: 0.3;
 }
 
-h1{
+h1 {
   font-size: calc(7.5rem + 2vmin);
 }
 
@@ -52,9 +41,11 @@ h1{
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -118,9 +109,23 @@ h1{
 
 a {
   color: #c6f7f9;
-}
-
-a {
   text-decoration: none;
 }
 
+.username-entry {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.use-csv-link {
+  margin-top: 0.5rem;
+  font-size: calc(0.1rem + 2vmin);
+  text-align: left;
+  cursor: pointer;
+}
+
+.use-csv-link:hover {
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #555;
+  color: #b7ffff;
+}

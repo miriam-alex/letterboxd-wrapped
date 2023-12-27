@@ -11,11 +11,18 @@ function Infographic({topMovies, minutesData, genreData, color}) {
 
     //<p className = "footer "> miriam-alex.github.io/letterboxd-wrapped/</p>
 
-    console.log("info")
-    console.log(color);
+    //console.log("info")
+    //console.log(color);
     const url = "https://image.tmdb.org/t/p/w1280" + topMovies[0].PosterPath
 
     if (topMovies.length >= 5){
+
+        const movieDisplayArr = [];
+
+        for (let i=0; i<5; i++){
+            movieDisplayArr.push((i+1)+". " + topMovies[i].Name + " (" + topMovies[i].Year + ")");
+        }
+        
         return (
             <div className="bg" style={{background: `${color}`}}>
                 <h1 className = "wrapped-title" > Letterboxd Wrapped </h1>
@@ -28,11 +35,11 @@ function Infographic({topMovies, minutesData, genreData, color}) {
                     <div className = 'top-movies'>
                         <h2 className = 'big-header'> Top Movies</h2>
                         <div className = 'movie-items' >
-                            <p>1. {topMovies[0].Name} ({topMovies[0].Year})</p>
-                            <p>2. {topMovies[1].Name} ({topMovies[1].Year})</p>
-                            <p>3. {topMovies[2].Name} ({topMovies[2].Year})</p>
-                            <p>4. {topMovies[3].Name} ({topMovies[3].Year})</p>
-                            <p>5. {topMovies[4].Name} ({topMovies[4].Year})</p>
+                            <p className = 'movie-item' >{movieDisplayArr[0]}</p>
+                            <p className = 'movie-item' >{movieDisplayArr[1]}</p>
+                            <p className = 'movie-item' >{movieDisplayArr[2]}</p>
+                            <p className = 'movie-item' >{movieDisplayArr[3]}</p>
+                            <p className = 'movie-item' >{movieDisplayArr[4]}</p>
                         </div>
                     </div>
     

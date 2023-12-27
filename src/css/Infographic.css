@@ -2,6 +2,7 @@
     position: relative;
     width: 450px;
     height: 450px;
+    font-family: 'Gothic A1';
   }
 
 .poster2 {
@@ -12,15 +13,20 @@
 }
 
 .big-header {
-    font-family: 'Gothic A1';
     font-style: normal;
     font-weight: 400;
     font-size: 1.4rem;
     text-align: left;
 }
 
+.movie-item {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .movie-items {
-    font-family: 'Gothic A1';
     font-style: italic;
     font-size: 0.9rem;
     text-align: left;
@@ -32,7 +38,6 @@
     left: 6.5%;
     top: 10%;
 
-    font-family: 'Gothic A1';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;

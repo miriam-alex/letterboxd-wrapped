@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-
+import { Buffer } from 'buffer';
 // pages
 import Home from './pages/Home';
 import Directions from './pages/Directions';
@@ -13,85 +13,107 @@ import FavoriteMovies from './pages/FavoriteMovies';
 import AboutMe from './pages/AboutMe';
 import Final from './pages/Final';
 
+global.Buffer = Buffer;
+
+
 function App() {
   // note: a state variable’s value never changes within a render. be careful.
   // remember to avoid direct mutations to object -> replace them w new ones so the frame rerenders
   // TREAT STATE AS IMMUTABLE!
-  
   const [pageIndex, setPageIndex] = useState(0);
   const [filmDataObj, setFilmDataObj] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const [minutesData, setMinutesData] = useState(null)
-  const [genreData, setGenreData] = useState(null)
+  const [genreData, setGenreData] = useState([])
   const [mapData, setMapData] = useState(null)
   const [topMovies, setTopMovies] = useState(null)
 
 
-  if (pageIndex === -1){
+  if (pageIndex === -1) {
     return (
-      <AboutMe onClick={() => setPageIndex(0)}/>
+      <AboutMe onClick={() => setPageIndex(0)} />
     );
-  } else if (pageIndex === 0){
+  } else if (pageIndex === 0) {
     return (
-      <Home className = 'Page-Animation' 
-            onClick={() => setPageIndex(1)}
-            onClickInfo={() => setPageIndex(-1)}               
+      <Home className='Page-Animation'
+        onClick={() => setPageIndex(1)}
+        onClickInfo={() => setPageIndex(-1)}
       />
     );
-  } else if (pageIndex === 1){
+  } else if (pageIndex === 1) {
     return (
-      <Directions className = 'Page-Animation'
-                  setPageIndex={setPageIndex}
-                  setFilmDataObj={setFilmDataObj} 
-                  setErrorMessage={setErrorMessage}
-                  setMinutesData={setMinutesData}
-                  setGenreData={setGenreData}
-                  setMapData={setMapData}
-                  />
+      <Directions className='Page-Animation'
+        setPageIndex={setPageIndex}
+        setFilmDataObj={setFilmDataObj}
+        setErrorMessage={setErrorMessage}
+        setMinutesData={setMinutesData}
+        setGenreData={setGenreData}
+        setMapData={setMapData}
+      />
     );
-  } else if (pageIndex === 2){
+  } else if (pageIndex === 2) {
     return (
       <FilmsWatched onClick={() => setPageIndex(3)}
-              filmDataObj = {filmDataObj}
+        filmDataObj={filmDataObj}
       />
     );
-  } else if (pageIndex === 3){
+  } else if (pageIndex === 3) {
     return (
       <MinutesWatched onClick={() => setPageIndex(4)}
-              minutesData={minutesData}
+        minutesData={minutesData}
       />
     );
-  } else if (pageIndex === 4){
+  } else if (pageIndex === 4) {
     return (
       <TopGenres onClick={() => setPageIndex(5)}
-              genreData = {genreData}
+        genreData={genreData}
       />
     );
-  } else if (pageIndex === 5){
+  } else if (pageIndex === 5) {
     return (
       <ProductionMap onClick={() => setPageIndex(6)}
-                     mapData = {mapData}
+        mapData={mapData}
       />
     );
-  } else if (pageIndex === 6){
+  } else if (pageIndex === 6) {
     return (
       <FavoriteMovies onClick={() => setPageIndex(7)}
-              filmDataObj = {filmDataObj}
-              setTopMovies = {setTopMovies}
+        filmDataObj={filmDataObj}
+        setTopMovies={setTopMovies}
       />
     );
-  } else if (pageIndex === 7){
+  } else if (pageIndex === 7) {
     return (
-      <Final onClick={() => setPageIndex(0)}
-              topMovies = {topMovies}
-              minutesData = {minutesData}
-              genreData = {genreData}
+      <Final onClick={() => {
+        setPageIndex(0);
+        window.location.reload(false);
+        // resetting the app
+        // setFilmDataObj(null);
+        // setErrorMessage(null);
+        // setMinutesData(null);
+        // setGenreData(null);
+        // setMapData(null);
+        // setTopMovies(null)
+      }}
+        topMovies={topMovies}
+        minutesData={minutesData}
+        genreData={genreData}
       />
     );
-  } else if (pageIndex === 'error'){
+  } else if (pageIndex === 'error') {
     return (
-      <Error errorMessage = {errorMessage} 
-              onClick = {() => setPageIndex(0)} />
+      <Error errorMessage={errorMessage}
+        onClick={() => {
+          setPageIndex(0);
+          window.location.reload(false);
+          //resetting the app
+          // setFilmDataObj(null);
+          // setErrorMessage(null);
+          // setMinutesData(null);
+          // setGenreData(null);
+          // setMapData(null);
+          // setTopMovies(null)
+        }} />
     );
   }
 }

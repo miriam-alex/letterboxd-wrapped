@@ -1,12 +1,20 @@
 import '../css/FilmsWatched.css';
 import '../css/App.css';
 import '../css/Animations.css';
-import React from 'react';
+import React, {useEffect} from "react"
 
 
 function AboutMe({onClick}) {
 
     const url = "https://github.com/miriam-alex/letterboxd-wrapped"
+
+    useEffect(()=> {
+      window.addEventListener("keydown", function (e) {
+        if (e.key === 'Enter') {
+          onClick();
+        }
+      })
+    });
 
     return (
       <div className="App">
