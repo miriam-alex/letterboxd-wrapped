@@ -30,7 +30,7 @@ Ever since the inception of Spotify Wrapped in 2016, there has been a rush to cr
 
 As a user of Letterboxd, an online movie review forum, I enjoyed seeing similar statistics in email format. However, I decided to add a couple of extra features that were not present in the free version of Letterboxd's End of Year Summary, especially since so much information is available online. 
 
-Letterboxd Wrapped generally performs the following tasks
+Letterboxd Wrapped performs the following tasks
 - Scrapes the user's diary on Letterboxd by querying an AWS Lambda function (not published on the repository) if the user has logged one or more films in the current year. If they have not, it returns to the same page of the application. The user can also opt to upload a CSV version of their film data directly from the Letterboxd website.
 - Queries The Movie Database, where Letterboxd sources its data, for additional details on the film
 - Updates specific state variables with the given data, allowing it to be passed as props to the visual components of the application
