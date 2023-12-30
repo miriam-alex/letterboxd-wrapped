@@ -4,7 +4,8 @@ import * as Secret from './Secret';
 // fetches data from the TMDB api
 export const fetchData = async function (userData, setUserData, setMinutesData, setGenreData, setMapData, setAllQueriesCompleted, setLoading, setError) {
   let userDataCopy = JSON.parse(JSON.stringify(userData));
-  console.log(userDataCopy)
+  // retrieving data
+  console.log(JSON.parse(JSON.stringify(userData)))
   for (let i = 0; i < userData.length; i++) {
     let movieJSON = userData[i];
     let movieID = await movieSearch(movieJSON.Name, movieJSON.Year, setLoading, setError);
@@ -13,10 +14,7 @@ export const fetchData = async function (userData, setUserData, setMinutesData, 
     await updateCurrentMovie(userDataCopy, movieData, i, setError);
   }
   // cleaning out invalid media
-  //console.log(userDataCopy.length)
-  const filteredUserDataCopy = userDataCopy.filter(movie => movie !== "invalid media")
-  setUserData(filteredUserDataCopy)
-
+  let filteredUserDataCopy = userDataCopy.filter(movie => movie !== "invalid media")
 
   // calculating minutes data
   let totalMinutes = 0;
@@ -24,11 +22,22 @@ export const fetchData = async function (userData, setUserData, setMinutesData, 
     totalMinutes = totalMinutes + filteredUserDataCopy[i].Runtime
   }
   setMinutesData(totalMinutes);
+
+  // removing duplicates (rewatches, multiple reviews, etc) after we compute total minutes
+  let seenMovies = {}
+  filteredUserDataCopy = filteredUserDataCopy.filter(movie => {
+    if (JSON.stringify(movie) in seenMovies) {
+      return false
+    } else {
+      seenMovies[JSON.stringify(movie)] = true;
+      return true
+    }
+  })
+
+  console.log(filteredUserDataCopy)
+  setUserData(filteredUserDataCopy)
   setGenreData(getGenreData(filteredUserDataCopy))
   setMapData(getMapData(filteredUserDataCopy))
-
-  // calculating genre data
-
   setAllQueriesCompleted(true)
 }
 

@@ -97,8 +97,8 @@ function Final({ onClick, topMovies, minutesData, genreData }) {
               </p>
             </div>
           </div>
-          <button type="button" className="info-button-2" onClick={handleDownloadImage}> (To commemorate, download this here.) </button>
-          <button type="button" className="btn btn-outline-light" onClick={onClick}> Home </button>
+          {/* <button type="button" className="info-button-2" onClick={handleDownloadImage}> (To commemorate, download this here.) </button> */}
+          <button type="button" style={{ marginTop: "1.5rem" }} className="btn btn-outline-light" onClick={onClick}> Home </button>
         </header>
       </div>
     );

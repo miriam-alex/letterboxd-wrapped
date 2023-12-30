@@ -121,11 +121,16 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-wrap: wrap;
+  padding: 0.2rem;
   padding-bottom: 2rem;
 }
 
 .favorite-movies-title {
-  font-size: calc(1.4rem + 2vmin);
+  margin-top: 3rem;
+  margin-left: 3rem;
+  margin-left: 3rem;
+  font-size: calc(1.5rem + 1vmin);
   line-height: 2;
 }
 

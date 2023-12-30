@@ -83,7 +83,8 @@ function FavoriteMovies({ onClick, filmDataObj, setTopMovies }) {
                                 lb_url={filmDataObj[4]['Letterboxd URI']}
                             />
                         </div>
-                        <button type="button" className="btn btn-outline-light" href='../css/FilmsWatched.css' onClick={onClick}> Next </button>
+                        <button type="button" style={{ marginBottom: "3rem" }}
+                            className="btn btn-outline-light" href='../css/FilmsWatched.css' onClick={onClick}> Next </button>
                     </div>
                 </header>
             </div>
